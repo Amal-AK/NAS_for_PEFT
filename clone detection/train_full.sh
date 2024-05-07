@@ -1,0 +1,18 @@
+python3 adapter.py \
+    --train_data_file=./dataset/train.txt \
+    --output_dir=./ \
+    --eval_data_file=./dataset/valid.txt \
+    --test_data_file=./dataset/test.txt \
+    --model_name_or_path=microsoft/graphcodebert-base  \
+    --tokenizer_name=microsoft/graphcodebert-base  \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_train \
+    --train_batch_size 16 \
+    --eval_batch_size 16 \
+    --train_data_rate 0.1 \
+    --learning_rate 5e-5 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 10 \
+    --seed 42  2>&1 | tee ./logs_seed42/graphcodebert_full.logs

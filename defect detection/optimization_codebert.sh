@@ -1,0 +1,22 @@
+python3 adapter.py \
+    --train_data_file=./dataset/train.jsonl \
+    --output_dir=./ \
+    --eval_data_file=./dataset/valid.jsonl \
+    --test_data_file=./dataset/test.jsonl \
+    --model_name_or_path=microsoft/codebert-base \
+    --tokenizer_name=microsoft/codebert-base \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_optimization \
+    --train_batch_size 16 \
+    --eval_batch_size 16 \
+    --train_data_rate 0.3 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 5 \
+    --population_size 30 \
+    --sample_size 20 \
+    --cycles 20 \
+    --optimization_history_file=./codebert_optimization_history_copy.txt \
+    --seed 123456  2>&1 | tee codebert_optimization_copy.log
